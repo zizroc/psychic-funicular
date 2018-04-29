@@ -172,6 +172,9 @@ for(j in 0:9){
 # test_ir0 <- read.table("/media/zizroc/Extra Drive 1/Data/EPIC/Rainfed/em005/EPIC_ITER8_em005_RF.txt", sep=",", header=T)
 # test_ir0 <- read.table("/media/zizroc/Extra Drive 1/Data/EPIC/Rainfed/em005/EPIC_ITER9_em005_RF.txt", sep=",", header=T)
 
+##
+#EPIC crop model block. This reads in the data from the crop model.
+##
   Corn.DF <- data.frame()
   Bean.DF <- data.frame()
   Rest.DF <- data.frame()
@@ -184,9 +187,9 @@ for(j in 0:9){
     test_ir <- test_ir0[test_ir0$Site_ID==nsite,]
 
     #Isolate by crop type
-    test_ir.corn <- test_ir[test_ir$CROP=="COR2",]
-    test_ir.bean <- test_ir[test_ir$CROP=="DRYB",]
-    test_ir.rest <- test_ir[test_ir$CROP=="FALW",]
+    test_ir.corn <- test_ir[test_ir$CROP=="COR2",] #Indian corn hard coded into EPIC.
+    test_ir.bean <- test_ir[test_ir$CROP=="DRYB",] #dry beans from EPIC.
+    test_ir.rest <- test_ir[test_ir$CROP=="FALW",] #fallow.
 
     #Isolate by crop spacing
     test_ir.corn.narr <- test_ir.corn[test_ir.corn$SPACING==0.75,]
@@ -228,7 +231,7 @@ for(j in 0:9){
     Corn.Tmp <- data.frame()
     Bean.Tmp <- data.frame()
     Rest.Tmp <- data.frame()
-    stratvec <- c("MS", "IC1", "IC2", "IC3", "IC4", "MC1", "MC2")
+    stratvec <- c("MS", "IC1", "IC2", "IC3", "IC4", "MC1", "MC2") #vector of potential strategies
     corn.strat <- list()
     bean.strat <- list()
     rest.strat <- list()
